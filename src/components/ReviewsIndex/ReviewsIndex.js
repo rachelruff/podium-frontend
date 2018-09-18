@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import accessToken from '../../config.js'
 
 class ReviewsIndex extends Component {
   constructor() {
@@ -31,10 +32,10 @@ class ReviewsIndex extends Component {
       ]
     };
 
-    const accessToken = "koOheljmQX";
     const config = {
-      headers: { Authorization: "Bearer " + accessToken }
+      headers: { Authorization: "Bearer " + accessToken.accessToken }
     };
+    
     const URL = "http://shakespeare.podium.co/api/reviews";
     axios
       .get(URL, config)
