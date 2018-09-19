@@ -25,7 +25,7 @@ class Overview extends Component {
     let threeStarArr = [];
     let twoStarArr = [];
     let oneStarArr = [];
-    last30.map(review => {
+    last30.map((review, i) => {
 
     // separate into star count groups
      
@@ -68,7 +68,7 @@ class Overview extends Component {
       oneStarArr
     } = this.state;
 
-    this.props.last30.length && !reviewCount ? this.getStats() : null;
+    last30.length && !reviewCount ? this.getStats() : null;
 
     return (
       <div>

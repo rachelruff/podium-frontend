@@ -30,10 +30,10 @@ class App extends Component {
     axios
       .get(URL, config)
       .then(resp => {
-        ///Changed the date to be 9/5/2016 since that's when the data ends -- if working with live data, remove the date
+        ///Changed the date to be 9/5/2016 00:00:00 since that's when the data ends -- if working with live data, remove the date
 
         let today = new Date("9/5/2016");
-        let prevMonth = new Date(today.setMonth(today.getMonth() - 1));
+        let prevMonth = new Date(today.setMonth(today.getMonth() - 1)).setHours(0,0,0,0);
         let last30DayReviews = [];
         resp.data.data.map(
           review =>
