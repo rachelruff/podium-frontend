@@ -10,7 +10,7 @@ class StarsByMonthGraph extends Component {
       month2: "",
       month3: "",
       month4: "",
-      month5: ""
+
     };
   }
 
@@ -24,7 +24,7 @@ class StarsByMonthGraph extends Component {
     let month2Arr = [];
     let month3Arr = [];
     let month4Arr = [];
-    let month5Arr = [];
+
     reviews.map(review => {
       ///Changed the date to be 9/5/2016 since that's when the data ends -- if working with live data, remove the date
       let today = new Date("9/5/2016");

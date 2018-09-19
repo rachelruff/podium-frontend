@@ -1,29 +1,93 @@
-.App {
-    text-align: center;
+////Variables
+
+
+$color-grey-light-background: #f7f7f7;
+$color-grey-dark-text: #424242;
+$color-grey-light-text: #919191;
+$color-purple: #965BC2;
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	background-color: $color-grey-light-background;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+///Resets all default CSS 
+
+
+
+
+.App{
+    font-family: 'Montserrat', sans-serif;
+	color: $color-grey-dark-text;
+	// height: 100vh;
+	
+}
+
+.container{
+	background-color: white;
+	box-shadow: 1px 2px 6px rgb(70, 70, 70);
+	padding: 15px;
+    margin: 8px 0;
+}
+
+.app-container{
+	box-sizing: border-box;
+	margin: auto;
+	width: 95%
+}
+
+.app-left, .app-right{
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	padding: 1vw;
+}
+
+
+@media only screen and (max-width: 790px) {
+	.app-left, .app-right{
+		width: 100%;
+	}
   }
-  
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
-  }
-  
-  .App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-  }
-  
-  .App-title {
-    font-size: 1.5em;
-  }
-  
-  .App-intro {
-    font-size: large;
-  }
-  
-  @keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  

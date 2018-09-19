@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { HorizontalBar } from "react-chartjs-2";
 
+import "./Overview.css";
+
 class StarsVerticalGraph extends Component {
   render() {
     const { data } = this.props;
@@ -22,7 +24,7 @@ class StarsVerticalGraph extends Component {
       ]
     };
     return (
-      <div>
+      <div className="stars-vert-graph-container">
         <HorizontalBar
           data={dataValues}
           options={{

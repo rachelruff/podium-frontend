@@ -1,0 +1,45 @@
+@import "../../App.scss";
+
+.header-container {
+  width: 100vw;
+  height: 120px;
+  display: flex;
+}
+
+.header-content {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  vertical-align: bottom;
+
+  img {
+    margin: auto 20px;
+    height: 80px;
+    width: auto;
+  }
+
+  h1 {
+    margin: auto;
+    text-transform: uppercase;
+    font-size: 130%;
+    padding-top: 46px;
+  }
+
+  span {
+    font-weight: bolder;
+    font-size: 180%;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .header-content {
+    h1 {
+      text-transform: uppercase;
+      font-size: 80%;
+    }
+    img {
+      height: 70px;
+    }
+  }
+}

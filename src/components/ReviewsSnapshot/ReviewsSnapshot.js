@@ -10,49 +10,51 @@ class ReviewsSnapshot extends Component {
     };
   }
   componentDidMount() {
-
-    const { last30 } = this.props;
-    this.sortReviews();
+    this.sortReviews(this.props.last30);
   }
 
-  sortReviews = () => {
-   
+  sortReviews = last30 => {
     let highReviews = [];
-    let lowReviews = []
-    let sorted = this.props.last30.sort((a, b) => {
+    let lowReviews = [];
+    let sorted = last30.sort((a, b) => {
       return a.rating > b.rating ? 1 : b.rating > a.rating ? -1 : 0;
     });
     lowReviews = sorted.splice(0, 3);
-    highReviews = sorted.splice(sorted.length-3, 3).sort((a, b) => {
+    highReviews = sorted.splice(sorted.length - 3, 3).sort((a, b) => {
       return a.rating < b.rating ? 1 : b.rating < a.rating ? -1 : 0;
     });
 
     this.setState({
       highReviews,
       lowReviews
-    })
+    });
   };
 
   render() {
-    const { last30 } = this.props;
     const { highReviews, lowReviews } = this.state;
 
     return (
-      <div>
+      <div className="review-snapshot-container">
         <h1>
           Recent Reviews <span>(30 days)</span>
         </h1>
-        <div>
-          <h2>Highest</h2>
-          {highReviews.map(review => (
-            <ReviewCard id={review.id} />
-          ))}
-        </div>
-        <div>
-          <h2>Lowest</h2>
-          {lowReviews.map(review => (
-            <ReviewCard id={review.id} />
-          ))}
+        <div className="review-snapshot-content container">
+          <div className="review-snapshot-highest-container">
+            <h2>Highest</h2>
+            <div className="review-snapshot-high-reviews">
+              {highReviews.map(review => (
+                <ReviewCard id={review.id} />
+              ))}
+            </div>
+          </div>
+          <div className="review-snapshot-lowest-container">
+            <h2>Lowest</h2>
+            <div className="review-snapshot-low-reviews">
+              {lowReviews.map(review => (
+                <ReviewCard id={review.id} />
+              ))}
+            </div>
+          </div>
         </div>
         <button>All Reviews</button>
       </div>

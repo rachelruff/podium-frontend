@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import StarsVerticalGraph from "./StarsVerticalGraph";
 
+import starImg from "./star.png";
+
+import "./Overview.css";
+
 class Overview extends Component {
   constructor(props) {
     super(props);
@@ -71,37 +75,35 @@ class Overview extends Component {
     last30.length && !reviewCount ? this.getStats() : null;
 
     return (
-      <div>
-        <div>
-          <div>Star pic</div>
-          <p>{avgStars ? avgStars.toFixed(1) : null}</p>
+      <div className="overview-container">
+      <h1>30-day Overview</h1>
+      <div className="overview-content-full container">
+        <div className="overview-content-top">
+          <div className="overview-content--star-average">
+            <img src={starImg} alt="star" />
+            <p>{avgStars ? `${avgStars.toFixed(1)}-star avg.` : null}</p>
+          </div>
+          <div className="overview-content--reveiw-count">
+            <h3>{reviewCount}</h3>
+            <p>{reviewCount === 1 ? "Review" : "Reviews"}</p>
+          </div>
         </div>
-        <div>
-          <div>{reviewCount}</div>
-          <p>{reviewCount === 1 ? "Review" : "Reviews"}</p>
+        <div className="overview-star-graph">
+        <h3>Breakdown by review:</h3>
+          <StarsVerticalGraph
+            data={{
+              fiveStar: fiveStarArr.length,
+              fourStar: fourStarArr.length,
+              threeStar: threeStarArr.length,
+              twoStar: twoStarArr.length,
+              oneStar: oneStarArr.length
+            }}
+          />
         </div>
-        <StarsVerticalGraph
-          data={{
-            fiveStar: fiveStarArr.length,
-            fourStar: fourStarArr.length,
-            threeStar: threeStarArr.length,
-            twoStar: twoStarArr.length,
-            oneStar: oneStarArr.length
-          }}
-        />
+        </div>
       </div>
     );
   }
 }
 
 export default Overview;
-
-{
-  /* <ul>
-  <li>5 star ({fiveStarArr.length ? fiveStarArr.length : 0})</li>
-  <li>4 star ({fourStarArr.length ? fourStarArr.length : 0})</li>
-  <li>3 star ({threeStarArr.length ? threeStarArr.length : 0})</li>
-  <li>2 star ({twoStarArr.length ? twoStarArr.length : 0})</li>
-  <li>1 star ({oneStarArr.length ? oneStarArr.length : 0})</li>
-</ul> */
-}

@@ -25,7 +25,6 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
-  background-color: #f7f7f7;
   line-height: 1; }
 
 ol, ul {
@@ -45,25 +44,58 @@ table {
 
 .App {
   font-family: 'Montserrat', sans-serif;
-  color: #424242; }
+  color: #424242;
+  background-color: #f7f7f7;
+  height: 100vh; }
 
 .container {
   background-color: white;
   box-shadow: 1px 2px 6px #464646;
-  padding: 15px;
-  margin: 8px 0; }
+  padding: 15px; }
 
 .app-container {
-  box-sizing: border-box;
-  margin: auto;
-  width: 95%; }
+  box-sizing: border-box; }
 
 .app-left, .app-right {
   display: inline-block;
   vertical-align: top;
-  width: 50%;
   padding: 1vw; }
 
-@media only screen and (max-width: 790px) {
-  .app-left, .app-right {
-    width: 100%; } }
+.overview-content-full {
+  height: auto; }
+
+.overview-content-top {
+  display: flex;
+  margin: 20px 0; }
+
+.overview-content--star-average {
+  margin: auto;
+  width: 50%;
+  text-align: center; }
+  .overview-content--star-average img {
+    width: 80px;
+    height: auto; }
+  .overview-content--star-average p {
+    margin: 5px;
+    font-weight: bold;
+    font-size: 110%; }
+
+.overview-content--reveiw-count {
+  width: 50%;
+  text-align: center;
+  margin: auto; }
+  .overview-content--reveiw-count h3 {
+    font-size: 400%;
+    margin-bottom: 10px;
+    color: #965BC2; }
+  .overview-content--reveiw-count p {
+    font-weight: bold;
+    font-size: 110%; }
+
+.overview-star-graph h3 {
+  margin: 5px 0;
+  font-size: 90%;
+  color: #919191; }
+
+.stars-vert-graph-container {
+  position: relative; }
