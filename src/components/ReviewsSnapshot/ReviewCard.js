@@ -10,6 +10,10 @@ class ReviewCard extends Component {
     };
   }
 
+  componentDidMount() {
+    this.getReview(this.props.id);
+  }
+
   getReview = id => {
     const config = {
       headers: { Authorization: auth.accessToken }
@@ -17,14 +21,21 @@ class ReviewCard extends Component {
     const URL = `http://shakespeare.podium.co/api/reviews/${id}`;
     axios
       .get(URL, config)
-      .then(resp => this.setState({ review: resp.data }))
+      .then(resp => this.setState({ review: resp.data.data }))
       .catch(err => console.log(err));
   };
   render() {
-    this.state.review === {} ? this.getReview(this.props.id) : null;
-    console.log('hit')
+    console.log(this.state.review);
+    const { review } = this.state;
 
-    return <div />;
+    return (
+      <div>
+        <div>{review.author}</div>
+        <div>{review.rating}</div>
+        <div>{review.publish_date}</div>
+        <div>{review.body}</div>
+      </div>
+    );
   }
 }
 

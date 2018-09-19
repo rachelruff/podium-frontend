@@ -55,7 +55,7 @@ class App extends Component {
     return (
       <div className="App">
         <Overview last30={last30DayReviews} />
-        <ReviewsSnapshot reviews={reviews} last30={last30DayReviews} />
+        {last30DayReviews.length ? <ReviewsSnapshot reviews={reviews} last30={last30DayReviews} /> : null}
         <MonthGraph reviews={reviews} />
       </div>
     );

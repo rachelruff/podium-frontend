@@ -9,33 +9,37 @@ class ReviewsSnapshot extends Component {
       lowReviews: []
     };
   }
-  // componentDidMount() {
-  //   const { last30 } = this.props;
-  //   const { highReviews, lowReviews } = this.state;
-  //   last30.length && highReviews === [] ? this.sortReviews() : null;
-  // }
+  componentDidMount() {
+
+    const { last30 } = this.props;
+    console.log(last30)
+    this.sortReviews();
+  }
 
   sortReviews = () => {
+   
     console.log("hit");
     let highReviews = [];
     let lowReviews = []
     let sorted = this.props.last30.sort((a, b) => {
       return a.rating > b.rating ? 1 : b.rating > a.rating ? -1 : 0;
     });
-    highReviews = sorted.splice(0, 3);
-    lowReviews = sorted.splice(sorted.length-3, 3);
+    lowReviews = sorted.splice(0, 3);
+    highReviews = sorted.splice(sorted.length-3, 3).sort((a, b) => {
+      return a.rating < b.rating ? 1 : b.rating < a.rating ? -1 : 0;
+    });
     console.log({highReviews, lowReviews});
     this.setState({
       highReviews,
       lowReviews
-    });
+    })
   };
 
   render() {
     const { last30 } = this.props;
     const { highReviews, lowReviews } = this.state;
 console.log(last30.length, highReviews.length)
-    !this.props.last30.length && !highReviews.length ?  null : this.sortReviews();
+    // this.state.highReviews === [] && this.props.last30.length ? this.sortReviews() : null;
 
     console.log(highReviews, lowReviews);
     return (
