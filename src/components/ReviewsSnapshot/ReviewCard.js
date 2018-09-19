@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-
-import auth from "./config.js";
+import axios from "axios";
+import auth from "../../config.js";
 
 class ReviewCard extends Component {
-  componentDidMount() {
-    getReview(this.props.id);
+  constructor(props) {
+    super(props);
+    this.state = {
+      review: {}
+    };
   }
 
   getReview = id => {
@@ -14,10 +17,13 @@ class ReviewCard extends Component {
     const URL = `http://shakespeare.podium.co/api/reviews/${id}`;
     axios
       .get(URL, config)
-      .then(resp => console.log(resp))
+      .then(resp => this.setState({ review: resp.data }))
       .catch(err => console.log(err));
   };
   render() {
+    this.state.review === {} ? this.getReview(this.props.id) : null;
+    console.log('hit')
+
     return <div />;
   }
 }

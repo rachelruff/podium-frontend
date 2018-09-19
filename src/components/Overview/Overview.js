@@ -13,9 +13,6 @@ class Overview extends Component {
       oneStarArr: []
     };
   }
-  componentDidMount() {
-    // this.getStats();
-  }
 
   getStats = () => {
     const { last30 } = this.props;
@@ -29,6 +26,9 @@ class Overview extends Component {
     let twoStarArr = [];
     let oneStarArr = [];
     last30.map(review => {
+
+    // separate into star count groups
+     
       ratingsArr.push(review.rating);
       if (review.rating === 5) {
         fiveStarArr.push(review.rating);
@@ -40,7 +40,9 @@ class Overview extends Component {
         twoStarArr.push(review.rating);
       } else oneStarArr.push(review.rating);
     });
-    console.log(last30);
+
+    // get the average of the ratings for past 30 days
+
     avgStars = ratingsArr.reduce((a, b) => a + b) / reviewCount;
 
     this.setState({
@@ -65,8 +67,7 @@ class Overview extends Component {
       twoStarArr,
       oneStarArr
     } = this.state;
-    console.log({ last30, avgStars, reviewCount, fiveStarArr });
-    console.log(this.props.last30);
+
     this.props.last30.length && !reviewCount ? this.getStats() : null;
 
     return (
@@ -92,15 +93,3 @@ class Overview extends Component {
 }
 
 export default Overview;
-
-{
-  /* {last30
-  .sort((a, b) => {
-    return a.rating > b.rating ? 1 : b.rating > a.rating ? -1 : 0;
-  })
-  .map(review => (
-    <div>
-      <p>{review.rating}</p>
-    </div>
-  ))} */
-}
