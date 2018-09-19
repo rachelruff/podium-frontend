@@ -7,6 +7,7 @@ import "./App.css";
 import Overview from "./components/Overview/Overview.js";
 import ReviewsSnapshot from "./components/ReviewsSnapshot/ReviewsSnapshot.js";
 import MonthGraph from "./components/MonthGraph/MonthGraph.js";
+import MonthGraph1 from "./components/MonthGraph/MonthGraph.1.js";
 
 class App extends Component {
   constructor() {
@@ -43,20 +44,24 @@ class App extends Component {
         );
         this.setState({
           reviews: resp.data.data,
-          last30DayReviews
+          last30DayReviews,
+          today
         });
       })
       .catch(err => console.log(err));
   };
 
   render() {
-    const { reviews, last30DayReviews } = this.state;
-
+    const { reviews, last30DayReviews, today } = this.state;
+console.log(reviews)
     return (
       <div className="App">
         <Overview last30={last30DayReviews} />
         {last30DayReviews.length ? <ReviewsSnapshot reviews={reviews} last30={last30DayReviews} /> : null}
-        <MonthGraph reviews={reviews} />
+        {/* <MonthGraph reviews={reviews} /> */}
+        {reviews.length ? <MonthGraph1 reviews={reviews} /> : null}
+
+        
       </div>
     );
   }

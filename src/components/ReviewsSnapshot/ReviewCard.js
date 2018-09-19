@@ -25,7 +25,7 @@ class ReviewCard extends Component {
       .catch(err => console.log(err));
   };
   render() {
-    console.log(this.state.review);
+    // console.log(this.state.review);
     const { review } = this.state;
 
     return (

@@ -28,8 +28,34 @@ class MonthGraph extends Component {
             //   "#880E4F"
             ]
           }
-        ]
-      }
+        ],
+        scales: {
+            xAxes: [
+              {
+                  ticks: {
+                     callback: function(label, index, labels) {
+                       console.log({label, index, labels} )
+                        return 
+                    //    label.toFixed(2) + "%";
+                     }
+                  }
+              }
+            ],
+            yAxes: [
+              {
+                  ticks: {
+                     callback: function(label, index, labels) {
+                       return label;
+                     },
+                     fontSize: 18,
+                     fontColor: 'black'
+                  },
+                   display: true,
+}
+            ]
+        }
+      },
+      
     };
   }
 
@@ -40,6 +66,7 @@ class MonthGraph extends Component {
           data={this.state.chartData}
           options={{
             legend: false,
+            yAxes: [{data: [0, 1, 2, 3, 4, 5]}]
             
           }}
         />
