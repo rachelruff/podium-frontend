@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
 
-class MonthGraph1 extends Component {
+class StarsByMonthGraph extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -135,4 +135,4 @@ class MonthGraph1 extends Component {
     return <Bar data={chartData} options={chartOptions} />;
   }
 }
-export default MonthGraph1;
+export default StarsByMonthGraph;

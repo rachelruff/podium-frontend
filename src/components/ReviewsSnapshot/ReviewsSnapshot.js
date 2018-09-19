@@ -54,6 +54,7 @@ class ReviewsSnapshot extends Component {
             <ReviewCard id={review.id} />
           ))}
         </div>
+        <button>All Reviews</button>
       </div>
     );
   }

@@ -4,10 +4,10 @@ import axios from "axios";
 import auth from "./config.js";
 
 import "./App.css";
+
 import Overview from "./components/Overview/Overview.js";
 import ReviewsSnapshot from "./components/ReviewsSnapshot/ReviewsSnapshot.js";
 import MonthGraph from "./components/MonthGraph/MonthGraph.js";
-import MonthGraph1 from "./components/MonthGraph/MonthGraph.1.js";
 
 class App extends Component {
   constructor() {
@@ -58,8 +58,7 @@ console.log(reviews)
       <div className="App">
         <Overview last30={last30DayReviews} />
         {last30DayReviews.length ? <ReviewsSnapshot reviews={reviews} last30={last30DayReviews} /> : null}
-        {/* <MonthGraph reviews={reviews} /> */}
-        {reviews.length ? <MonthGraph1 reviews={reviews} /> : null}
+        {reviews.length ? <MonthGraph reviews={reviews} /> : null}
 
         
       </div>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import StarsVerticalGraph from "./StarsVerticalGraph";
 
 class Overview extends Component {
   constructor(props) {
@@ -26,9 +27,8 @@ class Overview extends Component {
     let twoStarArr = [];
     let oneStarArr = [];
     last30.map((review, i) => {
+      // separate into star count groups
 
-    // separate into star count groups
-     
       ratingsArr.push(review.rating);
       if (review.rating === 5) {
         fiveStarArr.push(review.rating);
@@ -80,16 +80,28 @@ class Overview extends Component {
           <div>{reviewCount}</div>
           <p>{reviewCount === 1 ? "Review" : "Reviews"}</p>
         </div>
-        <ul>
-          <li>5 star ({fiveStarArr.length ? fiveStarArr.length : 0})</li>
-          <li>4 star ({fourStarArr.length ? fourStarArr.length : 0})</li>
-          <li>3 star ({threeStarArr.length ? threeStarArr.length : 0})</li>
-          <li>2 star ({twoStarArr.length ? twoStarArr.length : 0})</li>
-          <li>1 star ({oneStarArr.length ? oneStarArr.length : 0})</li>
-        </ul>
+        <StarsVerticalGraph
+          data={{
+            fiveStar: fiveStarArr.length,
+            fourStar: fourStarArr.length,
+            threeStar: threeStarArr.length,
+            twoStar: twoStarArr.length,
+            oneStar: oneStarArr.length
+          }}
+        />
       </div>
     );
   }
 }
 
 export default Overview;
+
+{
+  /* <ul>
+  <li>5 star ({fiveStarArr.length ? fiveStarArr.length : 0})</li>
+  <li>4 star ({fourStarArr.length ? fourStarArr.length : 0})</li>
+  <li>3 star ({threeStarArr.length ? threeStarArr.length : 0})</li>
+  <li>2 star ({twoStarArr.length ? twoStarArr.length : 0})</li>
+  <li>1 star ({oneStarArr.length ? oneStarArr.length : 0})</li>
+</ul> */
+}
