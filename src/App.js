@@ -4,7 +4,9 @@ import routes from "./routes";
 import Header from "./components/Header/Header";
 
 class App extends Component {
+
   render() {
+    console.log(React.version);
 
     return (
       <div className="App">
