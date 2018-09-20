@@ -53,6 +53,9 @@ table {
   padding: 15px;
   margin: 8px 0; }
 
+.review-snapshot-container {
+  margin-bottom: 30px; }
+
 .review-snapshot-highest-container {
   margin-bottom: 40px; }
   .review-snapshot-highest-container h2 {
