@@ -58,7 +58,7 @@ class HomePage extends Component {
 
   render() {
     const { reviews, last30DayReviews } = this.state;
-    console.log(reviews);
+
     return (
       <div className="app-container">
         <div className="app-left">

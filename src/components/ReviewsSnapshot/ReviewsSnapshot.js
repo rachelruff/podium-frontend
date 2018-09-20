@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import ReviewCard from "./ReviewCard.js";
 
 import "./ReviewSnapshot.css";
@@ -58,7 +59,9 @@ class ReviewsSnapshot extends Component {
             </div>
           </div>
         </div>
-        <button>All Reviews</button>
+        <Link to='/all-reviews'>
+          <button>All Reviews</button>
+        </Link>
       </div>
     );
   }

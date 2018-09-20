@@ -32,7 +32,7 @@ class ReviewCard extends Component {
     // console.log(this.state.review);
     const { review } = this.state;
     let width = `${(review.rating / 5) * 100}%`;
-    console.log(width);
+   
     let styles = {
       width: width
     };
