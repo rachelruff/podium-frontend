@@ -1,0 +1,21 @@
+@import "../../App.scss";
+
+.home-page-container{
+	box-sizing: border-box;
+	margin: auto;
+	width: 95%
+}
+
+.home-page-left, .home-page-right{
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	padding: 1vw;
+}
+
+
+@media only screen and (max-width: 790px) {
+	.home-page-left, .home-page-right{
+		width: 100%;
+	}
+  }
