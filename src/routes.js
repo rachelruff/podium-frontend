@@ -8,6 +8,5 @@ export default (
     <Switch>
       <Route exact path="/" component={HomePage} />
       <Route path='/all-reviews' component={AllReviews} />
-  
     </Switch>
   );
