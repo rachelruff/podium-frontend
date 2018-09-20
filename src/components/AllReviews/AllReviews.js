@@ -45,12 +45,15 @@ class AllReviews extends Component {
     const { reviews } = this.state;
 
     return (
-      <div className='all-reviews-container container'>
-      <h1>All Reviews</h1>
+      <div className="all-reviews-container ">
+        <h1>All Reviews</h1>
+        <div className="all-reviews-content container">
         {reviews.map(review => (
           <ReviewCard id={review.id} />
         ))}
       </div>
+      </div>
+
     );
   }
 }
