@@ -60,12 +60,12 @@ class HomePage extends Component {
     const { reviews, last30DayReviews } = this.state;
 
     return (
-      <div className="app-container">
-        <div className="app-left">
+      <div className="home-page-container">
+        <div className="home-page-left">
           <Overview last30={last30DayReviews} />
           {reviews.length ? <MonthGraph reviews={reviews} /> : null}
         </div>
-        <div className="app-right">
+        <div className="home-page-right">
           {last30DayReviews.length ? (
             <ReviewsSnapshot reviews={reviews} last30={last30DayReviews} />
           ) : null}
