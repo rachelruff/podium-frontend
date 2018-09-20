@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReviewCard from "./ReviewCard.js";
 
+import "./ReviewSnapshot.css";
+
 class ReviewsSnapshot extends Component {
   constructor(props) {
     super(props);

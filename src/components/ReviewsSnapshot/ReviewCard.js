@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+
 import auth from "../../config.js";
+import avatarCircle from "./avatarCircle.png";
+
+import "./ReviewSnapshot.css";
 
 class ReviewCard extends Component {
   constructor(props) {
@@ -27,13 +31,42 @@ class ReviewCard extends Component {
   render() {
     // console.log(this.state.review);
     const { review } = this.state;
-
+    let width = `${(review.rating / 5) * 100}%`;
+    console.log(width);
+    let styles = {
+      width: width
+    };
     return (
-      <div>
-        <div>{review.author}</div>
-        <div>{review.rating}</div>
-        <div>{review.publish_date}</div>
-        <div>{review.body}</div>
+      <div className="review-card-container">
+        <div className="review-card-container--poster-info">
+          <img src={avatarCircle} />
+          <div>{review.author}</div>
+        </div>
+        <div className="review-card-rating-and-stars">
+          <div className="review-card-star-ratings-container">
+            <div className="star-ratings-css">
+              <div className="star-ratings-css-top" style={styles}>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+              </div>
+              <div className="star-ratings-css-bottom">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+              </div>
+            </div>
+          </div>
+          <div className="review-card-rating">{review.rating}</div>
+        </div>
+        <p className='review-card-text-body'>"{review.body}"</p>
+        <div className="review-card-post-date">
+          {new Date(review.publish_date).toLocaleDateString("en-US")}
+        </div>
       </div>
     );
   }

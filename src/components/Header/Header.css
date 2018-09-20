@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
+  background-color: #f7f7f7;
   line-height: 1; }
 
 ol, ul {
@@ -44,22 +45,28 @@ table {
 
 .App {
   font-family: 'Montserrat', sans-serif;
-  color: #424242;
-  background-color: #f7f7f7;
-  height: 100vh; }
+  color: #424242; }
 
 .container {
   background-color: white;
   box-shadow: 1px 2px 6px #464646;
-  padding: 15px; }
+  padding: 15px;
+  margin: 8px 0; }
 
 .app-container {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin: auto;
+  width: 95%; }
 
 .app-left, .app-right {
   display: inline-block;
   vertical-align: top;
+  width: 50%;
   padding: 1vw; }
+
+@media only screen and (max-width: 790px) {
+  .app-left, .app-right {
+    width: 100%; } }
 
 .header-container {
   width: 100vw;
@@ -80,7 +87,8 @@ table {
     margin: auto;
     text-transform: uppercase;
     font-size: 130%;
-    padding-top: 46px; }
+    padding-top: 46px;
+    font-family: 'Dancing Script', cursive; }
   .header-content span {
     font-weight: bolder;
     font-size: 180%; }
