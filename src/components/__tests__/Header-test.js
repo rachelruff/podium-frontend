@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 
 // describe what we are testing
-describe('Login Component', () => {
+describe('Header Component', () => {
  
     // make our assertion and what we expect to happen 
     it('should render without throwing an error', () => {
